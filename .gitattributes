@@ -1,0 +1,11 @@
+# 二进制：禁止文本 diff 与换行符转换
+*.exe   binary
+*.dll   binary
+*.ico   binary
+*.png   binary
+*.zip   binary
+*.lnk   binary
+
+# Windows 批处理必须 CRLF（cmd.exe 解析依赖它）；其余文件保持原样不强制归一
+*.bat   text eol=crlf
+*.cmd   text eol=crlf

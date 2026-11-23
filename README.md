@@ -6,7 +6,7 @@
 [![.NET](https://img.shields.io/badge/.NET%20Framework-4.x-512BD4?style=flat-square&logo=dotnet&logoColor=white)](#系统要求)
 [![Size](https://img.shields.io/badge/size-431%20KB-8957e5?style=flat-square)](https://github.com/nightonly7/cfos/releases/latest/download/CfosWidget.exe)
 
-> 一个只有 300 KB 的绿色单文件小工具，在桌面上复刻 cFosSpeed 的网速悬浮窗。
+> 一个只有 431 KB 的绿色单文件小工具，在桌面上复刻 cFosSpeed 的网速悬浮窗。
 > 它不自己画界面 —— 直接加载 cFosSpeed 原版的 `net.ini` 皮肤引擎，用原版的位图、原版的帧动画、原版的字体渲染。
 
 | Liquid Crystal History — 九段历史柱 | Liquid Crystal — 单条长柱 |
@@ -420,13 +420,13 @@ Windows 的 `Ping` 只返回整数毫秒，本地链路抖动远小于 1ms，所
 
 ---
 
-## 打包：300 KB 单文件绿色版
+## 打包：431 KB 单文件绿色版
 
-`build.bat` 会把两个皮肤目录压成 `skins.zip`，再用 `csc /resource` 嵌进 exe，产出**单个约 300 KB 的 exe**，不依赖任何外部文件夹。
+`build.bat` 会把两个皮肤目录压成 `skins.zip`，再用 `csc /resource` 嵌进 exe，产出**单个约 431 KB 的 exe**，不依赖任何外部文件夹。
 
 ```
 pack-skins.ps1   →  build/skins.zip   (约 227 KB)
-csc -resource:skins.zip,skins.zip ...  →  build/CfosWidget.exe  (300 KB)
+csc -resource:skins.zip,skins.zip ...  →  build/CfosWidget.exe  (431 KB)
 ```
 
 运行时行为（`src/SkinPack.cs`）：
