@@ -1303,7 +1303,11 @@ namespace CfosWidget
                 string shotDir = SkinPack.ResolveDir(name) ?? dir;
                 double flow = 0;
                 if (args.Length > 3) double.TryParse(args[3], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out flow);
-                Shot(shotDir, args[1], name, flow);
+                int scale = 4;
+                if (args.Length > 4) int.TryParse(args[4], System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.InvariantCulture, out scale);
+                if (scale < 1) scale = 1;
+                if (scale > 16) scale = 16;
+                Shot(shotDir, args[1], name, flow, scale);
                 return;
             }
 
@@ -1797,7 +1801,7 @@ namespace CfosWidget
             catch { }
         }
 
-        static void Shot(string dir, string outPath, string skinName, double flow)
+        static void Shot(string dir, string outPath, string skinName, double flow, int scale)
         {
             Skin skin = Skin.Load(dir, skinName);
             int[] px = new int[skin.W * skin.H];
@@ -1806,6 +1810,9 @@ namespace CfosWidget
             st.RxCps = 161.0 * 1024; st.TxCps = 121.0 * 1024;
             st.RxBar = 0.62; st.TxBar = 0.38;
             st.Ping = 30; st.Conn = 2;
+            // Light the ping group at full brightness so the offline render shows the
+            // same "just probed" state the live widget shows right after a measurement.
+            st.PingPulse = 1.0;
             st.RxBullet = 4; st.TxBullet = 7;
             st.RxBulletAmp = 1.0; st.TxBulletAmp = 1.0;
             st.RxHist = new double[] { 0.15, 0.30, 0.46, 0.34, 0.62, 0.55, 0.72, 0.84, 0.62 };
@@ -1835,7 +1842,7 @@ namespace CfosWidget
                         g.FillRectangle(br, 0, 0, skin.W, skin.H);
                     g.DrawImage(b, new Rectangle(0, 0, skin.W, skin.H));
                 }
-                using (Bitmap big = new Bitmap(skin.W * 4, skin.H * 4))
+                using (Bitmap big = new Bitmap(skin.W * scale, skin.H * scale))
                 {
                     using (Graphics g = Graphics.FromImage(big))
                     {

@@ -8,7 +8,7 @@
 | ![Liquid Crystal History](screenshots/lc_history.png) | ![Liquid Crystal](screenshots/liquid_crystal.png) |
 | `lc_history` · 9 段逐段保留历史采样，带 `alpha_val`(55→230) 的由暗到亮渐变 | `liquid_crystal` · 单条长柱，`historysize=1`，只保留当前值，视觉上更"压得住" |
 
-两张截图都是本程序真实渲染输出（`--shot` 离线渲帧），不是 cFosSpeed 的截图。图里的 161K / 121K 速率、30ms 延迟、2 个连接数，全部来自实时采样。
+两张都是本程序 8 倍最近邻放大后的真实渲染输出（`--shot` 离线渲帧，936×488），不是 cFosSpeed 的截图。图里的 161K / 121K 速率、30ms 延迟、2 个连接数、亮起的 Ping 指示灯，都是实时采样会呈现的样子。
 
 ---
 
@@ -45,10 +45,12 @@ build.bat
 ### 离线渲一帧
 
 ```
-CfosWidget.exe --shot out.png liquid_crystal 0.6
+CfosWidget.exe --shot out.png liquid_crystal 0.6 8
 ```
 
-参数依次是：输出路径 / 皮肤名 / 流量强度（0~1）。会输出 4 倍放大并带背景的对照图，README 里那两张就是这样来的。
+参数依次是：输出路径 / 皮肤名 / 流量强度（0~1）/ 放大倍数（1~16，默认 4）。
+
+放大走最近邻插值，像素边缘是硬的，不会有双线性那种糊边。README 顶部那两张对比图就是 `8` 倍渲出来的（936×488），原始一帧是 117×61。
 
 ---
 
