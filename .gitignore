@@ -29,6 +29,9 @@ bin/
 *.pdb
 *.obj
 
+# ---------- 因 token 缺 workflow scope 暂缓提交的 CI 配置 ----------
+.ci-pending/
+
 # ---------- 系统 ----------
 Thumbs.db
 desktop.ini
