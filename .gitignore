@@ -1,0 +1,34 @@
+# ---------- 临时探针/调试脚本（非项目本体） ----------
+/*.py
+/*.ps1
+/*.cjs
+/*.js
+!_none
+_facts.txt
+aumid-test.lnk
+*.lnk
+jumplist-backup-*/
+CON
+cd
+
+# ---------- 运行时状态与截图 ----------
+*.png
+!icon/**/*.png
+!icon/**/*.ico
+!skin/**/*.png
+!build/skins/**/*.png
+!icon/*.ico
+build/barlevel.txt
+build/barstat.txt
+build/ratevar2.txt
+
+# ---------- 编译中间产物 ----------
+Obj/
+bin/
+*.pdb
+*.obj
+
+# ---------- 系统 ----------
+Thumbs.db
+desktop.ini
+.DS_Store
