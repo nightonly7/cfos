@@ -1,5 +1,11 @@
 # cFos 皮肤网速悬浮窗
 
+[![Release](https://img.shields.io/github/v/release/nightonly7/cfos?style=flat-square&label=release&color=4c8bf5)](https://github.com/nightonly7/cfos/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/nightonly7/cfos/total?style=flat-square&label=downloads&color=3fb950)](https://github.com/nightonly7/cfos/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20only-0078D6?style=flat-square&logo=windows&logoColor=white)](#系统要求)
+[![.NET](https://img.shields.io/badge/.NET%20Framework-4.x-512BD4?style=flat-square&logo=dotnet&logoColor=white)](#系统要求)
+[![Size](https://img.shields.io/badge/size-431%20KB-8957e5?style=flat-square)](https://github.com/nightonly7/cfos/releases/latest/download/CfosWidget.exe)
+
 > 一个只有 300 KB 的绿色单文件小工具，在桌面上复刻 cFosSpeed 的网速悬浮窗。
 > 它不自己画界面 —— 直接加载 cFosSpeed 原版的 `net.ini` 皮肤引擎，用原版的位图、原版的帧动画、原版的字体渲染。
 
@@ -21,6 +27,20 @@
 | **单文件** | 两个皮肤目录压进 exe 作资源，裸跑不用带任何文件夹；也支持往 exe 旁丢新皮肤目录而不重编译 |
 | **常驻托盘** | 单实例互斥体、全局热键、鼠标穿透、开机自启，全都可用 |
 | **DPI 干净** | PerMonitorV2 感知 + 只允许 1x / 2x / 3x 整数倍最近邻缩放，像素不糊 |
+
+---
+
+## 系统要求
+
+**仅支持 Windows。** 程序是 C# / .NET Framework 4.x WinForms 应用，调用了 `UpdateLayeredWindow` 分层窗口、`RegisterHotKey` 全局热键、`GetExtendedTcpTable` 等 Windows 专有 API，macOS 与 Linux 上无法运行。
+
+| 项目 | 要求 |
+| --- | --- |
+| 操作系统 | **Windows only**，Windows 7 SP1 及以上（64 位推荐） |
+| 运行时 | .NET Framework 4.x —— Windows 10 / 11 系统自带，无需另装 |
+| 架构 | 编译为 AnyCPU，x86 / x64 都能跑 |
+| 磁盘 | 单文件 431 KB，两个皮肤已内嵌，不需要外部文件夹 |
+| 依赖 | 无。未安装 cFosSpeed 也能运行（连接数会回退到系统 TCP 表） |
 
 ---
 
