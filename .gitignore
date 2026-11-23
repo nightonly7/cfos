@@ -13,6 +13,7 @@ cd
 
 # ---------- 运行时状态与截图 ----------
 *.png
+!screenshots/**/*.png
 !icon/**/*.png
 !icon/**/*.ico
 !skin/**/*.png
